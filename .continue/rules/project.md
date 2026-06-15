@@ -149,3 +149,10 @@ After inspection, create these files in `docs/research/`:
 3. `LAYOUT_ARCHITECTURE.md` — Page layouts, grid system, responsive behavior
 4. `INTERACTION_PATTERNS.md` — Animations, transitions, hover states
 5. `TECH_STACK_ANALYSIS.md` — What the site uses and our chosen equivalents
+
+
+## Cursor Cloud specific instructions
+
+- This is a static, front-end-only Next.js 16 scaffold: no backend, database, env vars, or external services. End-to-end testing is just running the dev server and viewing the page.
+- **Node version gotcha:** the project requires Node >= 24 (`engines` + `.nvmrc`), but the Cloud VM's bare `node` on `PATH` (`/exec-daemon/node`) is v22. Node 24 is installed and set as the nvm default, so a **login shell** picks it up automatically — start long-running processes via tmux with `bash -l` (as in the standard tmux flow), or run `nvm use 24` first in non-login shells. Running `npm run build`/`dev` under Node 22 can fail.
+- Run the app with `npm run dev` (Next.js dev server on port `3000`). Other commands (`lint`, `typecheck`, `build`, `check`) are documented under "Commands" above.
